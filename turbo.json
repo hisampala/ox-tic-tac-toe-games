@@ -45,6 +45,9 @@
     },
     "prisma:generate": {
       "cache": true
+    },
+    "clean": {
+     
     }
   }
 }

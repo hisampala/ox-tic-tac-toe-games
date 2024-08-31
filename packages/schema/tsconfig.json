@@ -2,8 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../typescript-config/node18.json",
   "exclude": ["node_modules", "dist"],
+  "include": ["src", "**/*.ts", "tsup.config.ts"],
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "noImplicitAny": false
   }
 }
