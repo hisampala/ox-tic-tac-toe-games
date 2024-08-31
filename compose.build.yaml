@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    container_name:  web
+    image:  ${WEB_IMAGE}
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+      args:
+        - CLIENT_ID_GOOGLE=${CLIENT_ID_GOOGLE}
+        - CLIENT_SECRET_GOOGLE=${CLIENT_SECRET_GOOGLE}
+        - CLIENT_ID_GITHUB=${CLIENT_ID_GITHUB}
+        - CLIENT_SECRET_GITHUB=${CLIENT_SECRET_GITHUB}
+        - SECRET_KEY=${SECRET_KEY}
+        - NEXT_PUBLIC_BASE_API_URL=${NEXT_PUBLIC_BASE_API_URL}
+  api:
+    container_name:  api
+    image:  ${API_IMAGE}
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      args:
+        - CLIENT_ID_GOOGLE=${CLIENT_ID_GOOGLE}
+        - CLIENT_SECRET_GOOGLE=${CLIENT_SECRET_GOOGLE}
+        - CLIENT_ID_GITHUB=${CLIENT_ID_GITHUB}
+        - CLIENT_SECRET_GITHUB=${CLIENT_SECRET_GITHUB}
+        - SECRET_KEY=${SECRET_KEY}
+        - NEXT_PUBLIC_BASE_API_URL=${NEXT_PUBLIC_BASE_API_URL}

@@ -1,0 +1,48 @@
+{
+  "name": "@ox/repository",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "source": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm i & pnpm generate & tsup",
+    "build:package": "pnpm  build",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "dev:package": "tsup --watch",
+    "generate": "pnpx prisma generate",
+    "lint": "eslint src/**/*ts.*",
+    "test": "jest",
+    "db:studio": "pnpx prisma studio",
+    "prisma:generate": "pnpx prisma generate",
+    "prisma:migrate:deploy": "pnpx prisma migrate deploy",
+    "prisma:migrate:dev": "pnpx prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "5.19.0",
+    "@types/node": "^22.5.1",
+    "prisma": "^5.19.0",
+    "tsup": "^8.2.4"
+  },
+  "devDependencies": {
+    "zod": "3.22.4",
+    "zod-prisma-types": "^3.1.6"
+  }
+}

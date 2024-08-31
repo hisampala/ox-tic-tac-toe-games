@@ -1,0 +1,1 @@
+export type TPoint = { point: { win: number, lost: number } }

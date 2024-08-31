@@ -1,0 +1,41 @@
+{
+  "name": "@ox/schema",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "source": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm i & tsup",
+    "build:package": "pnpm  build",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "dev:package": "tsup --watch",
+    "lint": "eslint src/**/*ts.*",
+    "test": "jest"
+  },
+  "dependencies": {
+    "tsup": "^8.2.4",
+    "@ox/repository": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "zod": "3.22.4"
+  }
+}

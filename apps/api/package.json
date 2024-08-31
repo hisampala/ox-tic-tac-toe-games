@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch --env-file=.env src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.2",
+    "@ox/repository": "workspace:*",
+    "@ox/schema": "workspace:*",
+    "effect": "^3.6.7",
+    "hono": "^4.5.9",
+    "tsup": "^8.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "@ox/eslint-config": "workspace:*",
+    "@ox/typescript-config": "workspace:*"
+  }
+}

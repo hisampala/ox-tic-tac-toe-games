@@ -1,0 +1,50 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "globalDependencies": [
+    ".env",
+    "NEXT_PUBLIC_*"
+  ],
+  "globalEnv": [
+    "CLIENT_ID_GOOGLE",
+    "CLIENT_SECRET_GOOGLE",
+    "CLIENT_ID_GITHUB",
+    "CLIENT_SECRET_GITHUB",
+    "SECRET_KEY"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
+    },
+    "build:package": {
+      "cache": true,
+      "dependsOn": [
+        "^build:package"
+      ],
+
+      "persistent": false
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "prisma:generate": {
+      "cache": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 18",
+  "compilerOptions": {
+    "lib": [
+      "ES2021",
+      "DOM"
+    ],
+    "module": "CommonJS",
+    "target": "ES2021",
+    "strict": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    "dist/**/*"
+  ],
+  "include": [
+    "src",
+    "**/*.ts",
+    "tsup.config.ts"
+  ]
+}
