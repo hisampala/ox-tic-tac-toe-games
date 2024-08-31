@@ -103,7 +103,7 @@ const Game: FC = () => {
       redirect: true
     });
   };
-  console.log({session})
+  
   if (!session) {
     router.push("/auth/sign-in");
   }

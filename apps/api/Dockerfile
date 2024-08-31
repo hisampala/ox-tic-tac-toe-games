@@ -37,9 +37,12 @@ RUN pnpx turbo run build --filter=api... && pnpm prune --prod
 
 # Runner stage
 FROM node:18-alpine AS runner
+RUN apk add --no-cache libc6-compat
+RUN apk update
 WORKDIR /app
+RUN touch .env
 
-RUN npm i sharp
+
 RUN addgroup --system --gid 1001 ox-group
 RUN adduser --system --uid 1001 ox-developer
 USER ox-developer
@@ -67,4 +70,4 @@ COPY --from=installer --chown=ox-developer:ox-group /app/apps/api/dist ./apps/ap
 ENV PORT=3333
 EXPOSE 3333
 
-CMD ["node", ""]
+CMD node ./apps/api/dist/index.cjs

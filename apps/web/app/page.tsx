@@ -8,7 +8,6 @@ export default function IndexPage() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(session);
     if (session) {
       router.push("/games");
     } else {

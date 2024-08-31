@@ -5,13 +5,14 @@
     "build": "turbo build",
     "build:package": "turbo run build:package --concurrency 8",
     "dev": "turbo dev",
-    "dev:web": "turbo dev dev --filter=web",
-    "dev:api": "turbo dev dev --filter=api",
+    "dev:web": "turbo dev  --filter=web",
+    "dev:api": "turbo dev  --filter=api",
     "prisma:generate": "turbo prisma:generate",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "",
-    "prepare": "pnpm prisma:generate"
+    "prepare": "pnpm prisma:generate",
+    "clean":"turbo clean"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
