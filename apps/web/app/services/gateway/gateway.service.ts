@@ -1,7 +1,7 @@
 import wretch from 'wretch';
 
 const BASE_URL_API_END_POINT = process.env.NEXT_PUBLIC_BASE_API_URL
-console.log("BASE_URL_API_END_POINT",BASE_URL_API_END_POINT)
+
 // T = type return
 // R = type aggruement
 const post = <T, R = object>(path: string, item: R) => wretch(`${BASE_URL_API_END_POINT}`).post(item, path).json<T>()

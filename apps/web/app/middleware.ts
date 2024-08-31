@@ -6,7 +6,6 @@ export async function middleware(req: NextRequest) {
       headers: req.headers
     }
   });
-  console.log(res)
   return res;
 }
 

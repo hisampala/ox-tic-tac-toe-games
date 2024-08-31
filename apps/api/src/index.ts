@@ -12,7 +12,7 @@ app.use('/api/*', cors({
 app.get('/healtz', (c) => c.text('ok'));
 app.route('/api/v1/history', controller.HistoryController(services.HistoryService));
 
-const port = 3333;
+const port = parseInt(process.env["PORT"] as string)  || 3333;
 
 console.log(`Server is running on port ${port}`);
 app.use(logger());
