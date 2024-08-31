@@ -38,6 +38,7 @@ RUN pnpx turbo run build --filter=api... && pnpm prune --prod
 # Runner stage
 FROM node:18-alpine AS runner
 WORKDIR /app
+RUN touch .env
 
 RUN npm i sharp
 RUN addgroup --system --gid 1001 ox-group
@@ -67,4 +68,4 @@ COPY --from=installer --chown=ox-developer:ox-group /app/apps/api/dist ./apps/ap
 ENV PORT=3333
 EXPOSE 3333
 
-CMD ["node", ""]
+CMD node ./apps/api/dist/index.cjs

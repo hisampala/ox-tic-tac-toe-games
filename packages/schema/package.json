@@ -7,7 +7,6 @@
     "access": "public"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**"
@@ -15,16 +14,15 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "source": "./src/index.ts",
-  "type": "module",
   "scripts": {
     "build": "pnpm i & tsup",
     "build:package": "pnpm  build",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist & rm -rf node_modules",
     "dev": "tsup --watch",
     "dev:package": "tsup --watch",
     "lint": "eslint src/**/*ts.*",
@@ -36,6 +34,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.1",
-    "zod": "3.22.4"
+    "zod": "3.22.4",
+    "@ox/eslint-config": "workspace:*",
+    "@ox/typescript-config": "workspace:*"
   }
 }

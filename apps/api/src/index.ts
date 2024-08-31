@@ -23,4 +23,3 @@ serve({
   port
 })
 
-export default app
