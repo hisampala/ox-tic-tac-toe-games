@@ -6,6 +6,7 @@
     "build:package": "turbo run build:package --concurrency 8",
     "dev": "turbo dev",
     "dev:web": "turbo dev  --filter=web",
+    "start:web": "turbo start  --filter=web",
     "dev:api": "turbo dev  --filter=api",
     "prisma:generate": "turbo prisma:generate",
     "lint": "turbo lint",
