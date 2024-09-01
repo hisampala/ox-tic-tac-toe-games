@@ -1,15 +1,22 @@
 version: "3"
 services:
   api:
-    container_name:  api-ox
-    image:  ${API_IMAGE}
+    container_name: api-ox
+    image: ${API_IMAGE}
     ports:
-      - 3333:3333
+      - ${API_PORT}:${API_PORT}
     environment:
       - CORS_ORIGIN=${CORS_ORIGIN}
       - DATABASE_URL=${DATABASE_URL}
+      - PORT=${API_PORT}
     networks:
       - ox-networks
+    healthcheck:
+      start_period: 5s
+      retries: 3
+      timeout: 15s
+      interval: 20s
+      test: ["CMD", "curl", "-f", "http://api:${API_PORT}/healthz"]
+
 networks:
   ox-networks:
-    

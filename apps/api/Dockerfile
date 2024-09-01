@@ -4,7 +4,7 @@ ARG PNPM_VERSION=8.15.5
 
 # Build stage
 FROM node:${NODE_VERSION}-alpine AS build
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat curl
 RUN apk update
 RUN npm install -g pnpm@${PNPM_VERSION}
 
@@ -20,7 +20,7 @@ RUN turbo prune --scope=api --docker
 
 # Installer stage
 FROM node:18-alpine AS installer
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat curl
 RUN apk update
 WORKDIR /app
 RUN npm install -g pnpm@${PNPM_VERSION}
@@ -37,7 +37,7 @@ RUN pnpx turbo run build --filter=api... && pnpm prune --prod
 
 # Runner stage
 FROM node:18-alpine AS runner
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat curl
 RUN apk update
 WORKDIR /app
 RUN touch .env
@@ -67,7 +67,9 @@ COPY --from=installer --chown=ox-developer:ox-group /app/packages/schema/node_mo
 COPY --from=installer --chown=ox-developer:ox-group /app/apps/api/node_modules ./apps/api/node_modules
 COPY --from=installer --chown=ox-developer:ox-group /app/apps/api/dist ./apps/api/dist
 
-ENV PORT=3333
-EXPOSE 3333
+ARG API_PORT
+ENV PORT=${API_PORT}
+RUN echo "PORT EXPOSE =${PORT}"
+EXPOSE ${PORT}
 
 CMD node ./apps/api/dist/index.cjs

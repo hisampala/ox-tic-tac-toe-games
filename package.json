@@ -9,6 +9,7 @@
     "start:web": "turbo start  --filter=web",
     "dev:api": "turbo dev  --filter=api",
     "prisma:generate": "turbo prisma:generate",
+    "prisma:migrate": "turbo prisma:migrate",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "",
