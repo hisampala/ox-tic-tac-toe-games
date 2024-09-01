@@ -31,6 +31,7 @@
     "test": "jest",
     "db:studio": "pnpx prisma studio",
     "prisma:generate": "pnpx prisma generate",
+    "prisma:migrate": "pnpx prisma:migrate:deploy",
     "prisma:migrate:deploy": "pnpx prisma migrate deploy",
     "prisma:migrate:dev": "pnpx prisma migrate dev"
   },
