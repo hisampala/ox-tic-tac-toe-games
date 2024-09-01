@@ -13,6 +13,7 @@ services:
         - CLIENT_SECRET_GITHUB=${CLIENT_SECRET_GITHUB}
         - SECRET_KEY=${SECRET_KEY}
         - NEXT_PUBLIC_BASE_API_URL=${NEXT_PUBLIC_BASE_API_URL}
+        - PORT=${PORT}
   api:
     container_name:  api
     image:  ${API_IMAGE}
