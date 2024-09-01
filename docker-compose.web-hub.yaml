@@ -4,7 +4,7 @@ services:
     container_name:  web-ox
     image:  ${WEB_IMAGE}
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
     environment:
       - CLIENT_ID_GOOGLE=${CLIENT_ID_GOOGLE}
       - CLIENT_SECRET_GOOGLE=${CLIENT_SECRET_GOOGLE}
@@ -12,6 +12,7 @@ services:
       - CLIENT_SECRET_GITHUB=${CLIENT_SECRET_GITHUB}
       - SECRET_KEY=${SECRET_KEY}
       - NEXT_PUBLIC_BASE_API_URL=${NEXT_PUBLIC_BASE_API_URL}
+      - PORT=${PORT}
     networks:
       - ox-networks
 networks:

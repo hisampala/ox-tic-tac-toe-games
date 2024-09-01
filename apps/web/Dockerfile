@@ -77,7 +77,9 @@ COPY --from=installer --chown=ox-developer:ox-group /app/apps/web/.next/standalo
 COPY --from=installer --chown=ox-developer:ox-group /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer --chown=ox-developer:ox-group /app/apps/web/public ./apps/web/public
 
-ENV PORT=3000
-EXPOSE 3000
+ARG PORT
+ENV PORT=${PORT}
+RUN echo "PORT EXPOSE =${PORT}"
+EXPOSE ${PORT}
 
 CMD ["node", "apps/web/server.js"]
