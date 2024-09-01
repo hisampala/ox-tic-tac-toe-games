@@ -9,7 +9,7 @@ const app = new Hono();
 app.use('/api/*', cors({
   origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",") : []
 }))
-app.get('/healtz', (c) => c.text('ok'));
+app.get('/healthz', (c) => c.text('ok', {status:200}));
 app.route('/api/v1/history', controller.HistoryController(services.HistoryService));
 
 const port = parseInt(process.env["PORT"] as string)  || 3333;
